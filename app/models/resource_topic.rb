@@ -1,4 +1,4 @@
 class ResourceTopic < ActiveRecord::Base
   belongs_to :topic
-  belongs_to :resources
+  belongs_to :resource
 end
