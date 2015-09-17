@@ -10,6 +10,9 @@ class ResourcesController < ApplicationController
   # GET /resources/1
   # GET /resources/1.json
   def show
+    @resource = Resource.find(params[:id])
+    @comments = Comment.where(resource_id: @resource.id)
+    # binding.pry
   end
 
   # GET /resources/new

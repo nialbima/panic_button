@@ -16,13 +16,8 @@
 </p>
 
 <p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
-
-<p>
   <strong>Cohort:</strong>
-  <%= @user.cohort %>
+  <%= @user.cohort.name %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

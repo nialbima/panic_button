@@ -26,13 +26,34 @@
 </p>
 
 <p>
+  <
+
+<p>
   <strong>User:</strong>
   <%= @resource.user.name %>
 </p>
 
 <p>
-  <label for="comments"> Comments: </label>
-  <p><%= Comment.find(@resource).content %> - <%= Comment.find(@resource).user.first_name %> </p>
+  <strong><label for="comments"> Comments: </label></strong>
+  <ul>
+
+  <% @comments.each do |comment| %>
+  <li><%= comment.content %> - <%= comment.user.first_name %> </li>
+  <% end %>
+
+  <form action="/comments/new" method="post">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+    <label for="new-comment"> Add Comment: </label><br>
+    <textarea name="comment[content]"></textarea><br>
+
+    <input type="submit" value="Post Comment">
+  </form>
+
+  </ul>
+</p>
+
+
 
 <%= link_to 'Edit', edit_resource_path(@resource) %> |
 <%= link_to 'Back', resources_path %> |

@@ -3,6 +3,6 @@ class Topic < ActiveRecord::Base
   has_many :resources, :through => :resource_topics
 
 
-    # validations
+  validates :name, :docs_url, :description, presence: true
 
 end

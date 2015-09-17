@@ -8,8 +8,16 @@
 </head>
 <body>
 
-<a href="/login">Login</a>
-<p><%= session[:user_id] %></p> 
+<% if !current_user %>
+  <a href="/login">Login</a> |
+<% else %>
+  <a href="/logout">Logout</a> |
+<% end %>
+<%= link_to "Home", root_path %> |
+<%= link_to "Topics", topics_path %> |
+<%= link_to "Users", users_path %> |
+<%= link_to "Resources", resources_path %>
+
 
 <%= yield %>
 

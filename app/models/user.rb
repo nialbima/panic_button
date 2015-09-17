@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  # validates :first_name, :password, :last_name, :email, :cohort_id, presence: true
+  validates :password, :email, presence: true
+
 
   def name
     "#{first_name} #{last_name}"

@@ -8,4 +8,9 @@ Rails.application.routes.draw do
   post '/login', to: 'users#login_post'
   get '/logout', to: 'users#logout'
 
+  # return to resource after editing/posting comment
+  post '/comments/new', to: 'resources#show'
+
+  post '/comments/edit', to: 'resources#show'
+
 end

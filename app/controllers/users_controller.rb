@@ -9,8 +9,10 @@ class UsersController < ApplicationController
 
 
   def login
+
     if current_user
-      redirect_to url_for(:back)
+      # raise current_user
+      redirect_to user_path(current_user)
     else
       @cohorts = Cohort.all
       render :login
@@ -19,17 +21,17 @@ class UsersController < ApplicationController
 
   def logout
     session[:user_id] = nil
-    redirect_to url_for(:back)
+    redirect_to root_path
   end
 
   def login_post
-      @user = User.find_by({email: params[:email]})
+      @user = User.find_by(email: params["email"])
+
       if @user
         #proceed with the login
-        raise params[:password]
         if @user.authenticate(params[:password])
           session[:user_id] = @user.id
-          redirect_to resources_path
+          redirect_to user_path(@user)
         else
           redirect_to '/'
         end
@@ -45,6 +47,7 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
+    @cohorts = Cohort.all
     @user = User.new
   end
 
@@ -55,6 +58,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+    binding.pry
     @user = User.new(user_params)
 
     respond_to do |format|

@@ -9,19 +9,7 @@ heroku
 views
   -0 views so far
 
-authentication
-  -none
-
-sessions/cookies
-  -none
-
-seed data
-  -written
-
-css
-  -hahahahaha
-
-routes
-  -make a diagram, motherfuuuuuuckeeeeer
+CohortsController
+  -we need a way to see things by cohort. but not really, actually
 
   

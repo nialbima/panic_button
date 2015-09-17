@@ -11,6 +11,7 @@
     </div>
   <% end %>
 
+
   <div class="field">
     <%= f.label :first_name %><br>
     <%= f.text_field :first_name %>
@@ -28,8 +29,11 @@
     <%= f.text_field :password %>
   </div>
   <div class="field">
-    <%= f.label :cohort_id %><br>
-    <%= f.text_field :cohort_id %>
+     <select name='cohort'>
+        <% @cohorts.each do |t| %>
+        <option value="<%=t.id%>"><%=t.name%></option>
+        <% end %>
+      </select>
   </div>
   <div class="actions">
     <%= f.submit %>
