@@ -11,13 +11,13 @@ Cohort.create([
   ])
 
 User.create([
-  {first_name: "Harrison", last_name: "Riddell", email:"harrison@gmail.com", password_digest:BCrypt::Password.create("password"), cohort:Cohort.find(1)},
-  {first_name: "Meiji", last_name: "Chen", email:"meiji@gmail.com", password_digest:BCrypt::Password.create("password"), cohort:Cohort.find(1)},
-  {first_name: "Calvin", last_name: "Yeung", email:"calvin@gmail.com", password_digest:BCrypt::Password.create("password"), cohort:Cohort.find(1)},
-  {first_name: "Jaskar", last_name: "Singh", email:"jaskar@gmail.com", password_digest:BCrypt::Password.create("password"), cohort:Cohort.find(1)},
-  {first_name: "Joy", last_name: "Morgan", email:"joy@gmail.com", password_digest:BCrypt::Password.create("password"), cohort:Cohort.find(1)},
-  {first_name: "Brian", last_name: "Deutsch", email:"brian@gmail.com", password_digest:BCrypt::Password.create("password"), cohort:Cohort.find(1)},
-  {first_name: "Josh", last_name: "Bubis", email:"josh@gmail.com", password_digest:BCrypt::Password.create("password"), cohort:Cohort.find(1)},
+  {first_name: "Harrison", last_name: "Riddell", email:"harrison@gmail.com", password_digest:BCrypt::Password.create("password"), cohort:Cohort.first},
+  {first_name: "Meiji", last_name: "Chen", email:"meiji@gmail.com", password_digest:BCrypt::Password.create("password"), cohort:Cohort.first},
+  {first_name: "Calvin", last_name: "Yeung", email:"calvin@gmail.com", password_digest:BCrypt::Password.create("password"), cohort:Cohort.first},
+  {first_name: "Jaskar", last_name: "Singh", email:"jaskar@gmail.com", password_digest:BCrypt::Password.create("password"), cohort:Cohort.first},
+  {first_name: "Joy", last_name: "Morgan", email:"joy@gmail.com", password_digest:BCrypt::Password.create("password"), cohort:Cohort.first},
+  {first_name: "Brian", last_name: "Deutsch", email:"brian@gmail.com", password_digest:BCrypt::Password.create("password"), cohort:Cohort.first},
+  {first_name: "Josh", last_name: "Bubis", email:"josh@gmail.com", password_digest:BCrypt::Password.create("password"), cohort:Cohort.first},
   ])
 
 
