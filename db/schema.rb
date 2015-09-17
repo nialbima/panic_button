@@ -44,11 +44,13 @@ ActiveRecord::Schema.define(version: 20150916172250) do
   end
 
   create_table "resource_topics", force: :cascade do |t|
+    t.integer  "resource_id"
     t.integer  "topic_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
+  add_index "resource_topics", ["resource_id"], name: "index_resource_topics_on_resource_id", using: :btree
   add_index "resource_topics", ["topic_id"], name: "index_resource_topics_on_topic_id", using: :btree
 
   create_table "resources", force: :cascade do |t|
@@ -76,16 +78,17 @@ ActiveRecord::Schema.define(version: 20150916172250) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
-    t.string   "password"
+    t.string   "password_digest"
     t.integer  "cohort_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_index "users", ["cohort_id"], name: "index_users_on_cohort_id", using: :btree
 
   add_foreign_key "comments", "resources"
   add_foreign_key "comments", "users"
+  add_foreign_key "resource_topics", "resources"
   add_foreign_key "resource_topics", "topics"
   add_foreign_key "resources", "users"
   add_foreign_key "users", "cohorts"

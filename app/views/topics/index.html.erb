@@ -15,10 +15,9 @@
   <tbody>
     <% @topics.each do |topic| %>
       <tr>
-        <td><%= topic.name %></td>
+        <td><%= link_to topic.name, topic %></td>
         <td><%= topic.docs_url %></td>
         <td><%= topic.description %></td>
-        <td><%= link_to 'Show', topic %></td>
         <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
         <td><%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

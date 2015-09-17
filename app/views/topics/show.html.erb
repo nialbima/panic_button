@@ -6,8 +6,8 @@
 </p>
 
 <p>
-  <strong>Docs url:</strong>
-  <%= @topic.docs_url %>
+  <strong>Docs:</strong>
+  <%= link_to @topic.docs_url, @topic.docs_url %>
 </p>
 
 <p>
@@ -15,5 +15,10 @@
   <%= @topic.description %>
 </p>
 
+<% @topic.resources.each do |t| %>
+<p> <%= link_to t.name, t %> </p>
+    <% end %>
+
 <%= link_to 'Edit', edit_topic_path(@topic) %> |
-<%= link_to 'Back', topics_path %>
+<%= link_to 'Back', topics_path %> |
+<%= link_to 'Home', root_path %>

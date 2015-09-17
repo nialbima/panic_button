@@ -12,12 +12,12 @@
 
 <p>
   <strong>Link:</strong>
-  <%= @resource.link %>
+  <%= link_to @resource.link, @resource.link %>
 </p>
 
 <p>
-  <strong>Img url:</strong>
-  <%= @resource.img_url %>
+  <strong>Logo:</strong>
+  <img src="<%= @resource.img_url %>" height="42" width="42"/>
 </p>
 
 <p>
@@ -27,8 +27,13 @@
 
 <p>
   <strong>User:</strong>
-  <%= @resource.user %>
+  <%= @resource.user.name %>
 </p>
 
+<p>
+  <label for="comments"> Comments: </label>
+  <p><%= Comment.find(@resource).content %> - <%= Comment.find(@resource).user.first_name %> </p>
+
 <%= link_to 'Edit', edit_resource_path(@resource) %> |
-<%= link_to 'Back', resources_path %>
+<%= link_to 'Back', resources_path %> |
+<%= link_to 'Home', root_path %>

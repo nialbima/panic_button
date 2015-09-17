@@ -7,6 +7,37 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+
+  def login
+    if current_user
+      redirect_to url_for(:back)
+    else
+      @cohorts = Cohort.all
+      render :login
+    end
+  end
+
+  def logout
+    session[:user_id] = nil
+    redirect_to url_for(:back)
+  end
+
+  def login_post
+      @user = User.find_by({email: params[:email]})
+      if @user
+        #proceed with the login
+        raise params[:password]
+        if @user.authenticate(params[:password])
+          session[:user_id] = @user.id
+          redirect_to resources_path
+        else
+          redirect_to '/'
+        end
+      else
+        redirect_to '/'
+      end
+    end
+
   # GET /users/1
   # GET /users/1.json
   def show

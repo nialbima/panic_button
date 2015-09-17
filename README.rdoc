@@ -1,28 +1,27 @@
-== README
+HELLO. HERE'S WHAT'S UP:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+db
+  -this is all set. we've linked everything up acceptably. needs some testing.
 
-Things you may want to cover:
+heroku
+  -not created yet.
 
-* Ruby version
+views
+  -0 views so far
 
-* System dependencies
+authentication
+  -none
 
-* Configuration
+sessions/cookies
+  -none
 
-* Database creation
+seed data
+  -written
 
-* Database initialization
+css
+  -hahahahaha
 
-* How to run the test suite
+routes
+  -make a diagram, motherfuuuuuuckeeeeer
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+  

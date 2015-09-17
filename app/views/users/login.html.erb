@@ -1,0 +1,21 @@
+<h1>Login</h1>
+
+<form action="/login" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+    First Name: <input type="text" name="first_name"><br>
+    Last Name: <input type="text" name="last_name"><br>
+    Email: <input type="text" name="email"><br>
+    Password: <input type="password" name="password"><br>
+
+    Cohort: <select>
+              <% @cohorts.each do |t| %>
+              <option value="<%=t.id%>"><%=t.name%></option>
+              <% end %>
+            </select>
+
+    <input type="submit">
+</form>
+
+
+<%= link_to 'Show', @user %> |
+<%= link_to 'Back', url_for(:back) %>

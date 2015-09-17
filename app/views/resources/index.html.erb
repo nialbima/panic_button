@@ -5,12 +5,11 @@
 <table>
   <thead>
     <tr>
+      <th>Week</th>
       <th>Name</th>
       <th>Description</th>
       <th>Link</th>
-      <th>Img url</th>
-      <th>Week</th>
-      <th>User</th>
+      <th>Last Edited By</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,12 +17,11 @@
   <tbody>
     <% @resources.each do |resource| %>
       <tr>
-        <td><%= resource.name %></td>
-        <td><%= resource.description %></td>
-        <td><%= resource.link %></td>
-        <td><%= resource.img_url %></td>
         <td><%= resource.week %></td>
-        <td><%= resource.user %></td>
+        <td><%= link_to resource.name, resource %></td>
+        <td><%= resource.description %></td>
+        <td><%= link_to resource.link, "#{resource.link}" %></td>
+        <td><%= resource.user.name %></td>
         <td><%= link_to 'Show', resource %></td>
         <td><%= link_to 'Edit', edit_resource_path(resource) %></td>
         <td><%= link_to 'Destroy', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
