@@ -1,4 +1,6 @@
 class ResourcesController < ApplicationController
+
+
   before_action :set_resource, only: [:show, :edit, :update, :destroy]
 
   # GET /resources

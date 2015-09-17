@@ -9,8 +9,6 @@ Rails.application.routes.draw do
   get '/logout', to: 'users#logout'
 
   # return to resource after editing/posting comment
-  post '/comments/new', to: 'resources#show'
-
-  post '/comments/edit', to: 'resources#show'
+  post '/comments', to: 'comments#create'
 
 end

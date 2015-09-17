@@ -12,4 +12,6 @@ views
 CohortsController
   -we need a way to see things by cohort. but not really, actually
 
-  
+
+categoris
+  -SPECIFY THE CATEGORY. selector in new view.

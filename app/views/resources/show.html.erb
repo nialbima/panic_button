@@ -1,8 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+
 <p>
   <strong>Name:</strong>
   <%= @resource.name %>
+</p>
+
+<p>
+  <strong>Last Updated: </strong>
+  <%= @resource.updated_at %>
 </p>
 
 <p>
@@ -25,8 +31,6 @@
   <%= @resource.week %>
 </p>
 
-<p>
-  <
 
 <p>
   <strong>User:</strong>
@@ -41,15 +45,7 @@
   <li><%= comment.content %> - <%= comment.user.first_name %> </li>
   <% end %>
 
-  <form action="/comments/new" method="post">
-    <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
-    <label for="new-comment"> Add Comment: </label><br>
-    <textarea name="comment[content]"></textarea><br>
-
-    <input type="submit" value="Post Comment">
-  </form>
-
+  <button><%= link_to "Add New Comment", new_comment_path(:linked_resource => @resource.id) %></button>
   </ul>
 </p>
 

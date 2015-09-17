@@ -1,5 +1,17 @@
-<h1>New Comment</h1>
+<h1>Add New Comment</h1>
 
-<%= render 'form' %>
+<% params[:id] = params[:linked_resource] %>
+<%= params[:id] %>
 
-<%= link_to 'Back', resources_path %>
+<form action="/comments" method="post">
+  <% @comment.user_id = session[:user_id] %>
+  <% @comment.resource_id = params[:linked_resource] %>
+
+
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+  <input type="hidden" name="comment[:resource_id]" value="<%=@comment.resource_id%>"/>
+  <input type="hidden" name="comment[:user_id]" value="<%=@comment.user_id%>" />
+  <label for="new-comment"> Add Comment: </label><br>
+  <textarea name="comment[:content]"></textarea><br>
+  <input type="submit" value="Post Comment">
+</form>
