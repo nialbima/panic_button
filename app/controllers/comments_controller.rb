@@ -31,7 +31,6 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        binding.pry
         format.html { redirect_to resources_path, notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else

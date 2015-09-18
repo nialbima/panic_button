@@ -18,3 +18,7 @@ categories
 
 markdown
   -found on the topic and resource show pages
+
+
+in the resources controller:
+  -we need to get multiple topic ids passed into params

@@ -18,6 +18,7 @@ User.create([
   {first_name: "Joy", last_name: "Morgan", email:"joy@gmail.com", password:"password", cohort:Cohort.first},
   {first_name: "Brian", last_name: "Deutsch", email:"brian@gmail.com", password:"password", cohort:Cohort.first},
   {first_name: "Josh", last_name: "Bubis", email:"josh@gmail.com", password:"password", cohort:Cohort.first},
+  {first_name: "Nick", last_name: "Marshall", email:"nialbima@gmail.com", password:"password", cohort:Cohort.first},
   ])
 
 

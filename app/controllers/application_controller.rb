@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  CLIENT = SendGrid::Client.new(api_user: 'nialbima', api_key: 'password')
+  CLIENT = SendGrid::Client.new(api_user: 'nialbima', api_key: 'password1')
 
   def mail(options={})
     mail = SendGrid::Mail.new do |m|
@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
   def current_user
     if session[:user_id]
-      @user ||= User.find(session[:user_id])
+      User.find(session[:user_id])
     end
   end
   helper_method :current_user

@@ -23,7 +23,21 @@
   **User:**
   #{ @resource.user.name }
   ")%>
+
+
+  <%= markdown("##**Topics:**") %>
+  <% @topics.each do |t| %>
+      <li><%=link_to t.name, topic_path(t.id)%></li>
+  <% end %>
+
 </div>
+
+<br>
+
+<% if current_user %>
+  <%= link_to 'Edit Item', edit_resource_path(@resource) %>
+  <%= link_to 'Destroy', @resource, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
 
 <div id="resource-comments" >
 
@@ -38,6 +52,6 @@
 
 <br>
 
-<%= link_to 'Edit', edit_resource_path(@resource) %> |
+
 <%= link_to 'Back', resources_path %> |
 <%= link_to 'Home', root_path %>

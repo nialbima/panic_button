@@ -37,9 +37,19 @@
     <%= f.label :user_id %><br>
     <%= f.text_field :user_id %>
   </div>
+  <div class="field">
+    <h3>Topics</h3>
+    <% params['resource_id'] = @resource.id %>
+    <% @topics.each do |t| %>
+      <label name='topic_id'><%= t.name %></label>
+      <input type="checkbox" name="topic_id" value="<%=t.id%>">
+    <% end %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>
 
 <%= markdown("#{link_to 'Show', @resource} | #{ link_to 'Back', resources_path }")%>

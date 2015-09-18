@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>First name:</strong>
+  <strong>Name:</strong>
   <%= @user.first_name %>
 </p>
 
@@ -20,5 +20,9 @@
   <%= @user.cohort.name %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<% if current_user %>
+  <% if current_user.id == @user.id %>
+    <%= link_to 'Edit', edit_user_path(@user) %>
+    <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+<% end %>

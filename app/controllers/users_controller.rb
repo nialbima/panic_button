@@ -9,9 +9,7 @@ class UsersController < ApplicationController
 
 
   def login
-
     if current_user
-      # raise current_user
       redirect_to user_path(current_user)
     else
       @cohorts = Cohort.all
@@ -31,12 +29,12 @@ class UsersController < ApplicationController
         #proceed with the login
         if @user.authenticate(params[:password])
           session[:user_id] = @user.id
-          redirect_to user_path(@user)
+          redirect_to topics_path
         else
-          redirect_to '/'
+          render :login
         end
       else
-        redirect_to '/'
+        render :login
       end
     end
 
