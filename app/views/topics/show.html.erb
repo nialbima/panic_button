@@ -1,24 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @topic.name %>
-</p>
+  <div class='topic-details'>
+    <%=markdown("
+    **Name:** #{@topic.name}
 
-<p>
-  <strong>Docs:</strong>
-  <%= link_to @topic.docs_url, @topic.docs_url %>
-</p>
+    **Docs:** #{link_to @topic.docs_url, @topic.docs_url}
 
-<p>
-  <strong>Description:</strong>
-  <%= @topic.description %>
-</p>
+    **Description:** #{@topic.description}")%>
+  <div>
 
-<% @topic.resources.each do |t| %>
-<p> <%= link_to t.name, t %> </p>
+  <div class='topic-links'>
+    <%=markdown("###**Available Resources**")%>
+    <% @resources.each do |t| %>
+      <%=  markdown("* #{link_to t.name, t}") %>
     <% end %>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_topic_path(@topic) %> |
-<%= link_to 'Back', topics_path %> |
-<%= link_to 'Home', root_path %>
+<div class='bottom-nav'>
+  <%= markdown("#{link_to 'Edit', edit_topic_path(@topic)} | #{link_to 'Back', topics_path } | #{ link_to 'Home', root_path })" %>
+</div>

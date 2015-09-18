@@ -15,3 +15,6 @@ CohortsController
 
 categories
   -SPECIFY THE CATEGORY. selector in new view.
+
+markdown
+  -found on the topic and resource show pages

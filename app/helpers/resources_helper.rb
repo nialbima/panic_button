@@ -1,2 +1,2 @@
-module ResourcesHelper
+module ResourcesHelper 
 end

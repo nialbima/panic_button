@@ -1,55 +1,42 @@
 <p id="notice"><%= notice %></p>
 
+<div class='resource-info'>
+<%= markdown("
+  **Name:**
+  #{@resource.name}
 
-<p>
-  <strong>Name:</strong>
-  <%= @resource.name %>
-</p>
+  **Last Updated:**
+  #{ @resource.updated_at }
 
-<p>
-  <strong>Last Updated: </strong>
-  <%= @resource.updated_at %>
-</p>
+  **Description:**
+  #{ @resource.description }
 
-<p>
-  <strong>Description:</strong>
-  <%= @resource.description %>
-</p>
+  **Link:**
+  #{ link_to @resource.link, @resource.link }
 
-<p>
-  <strong>Link:</strong>
-  <%= link_to @resource.link, @resource.link %>
-</p>
+  **Logo:**
+  #{image_tag @resource.img_url, height:42 }
 
-<p>
-  <strong>Logo:</strong>
-  <img src="<%= @resource.img_url %>" height="42" width="42"/>
-</p>
+  **Week:**
+  #{ @resource.week }
 
-<p>
-  <strong>Week:</strong>
-  <%= @resource.week %>
-</p>
+  **User:**
+  #{ @resource.user.name }
+  ")%>
+</div>
 
+<div id="resource-comments" >
 
-<p>
-  <strong>User:</strong>
-  <%= @resource.user.name %>
-</p>
+    <%=markdown("**<label for='comments'> Comments: </label>**")%>
+    <% @comments.each do |comment| %>
+      <%= markdown( "* #{comment.content} - #{comment.user.first_name }") %>
+    <% end %>
 
-<p>
-  <strong><label for="comments"> Comments: </label></strong>
-  <ul>
+    <button><%= link_to "Add New Comment", new_comment_path(:linked_resource => @resource.id) %></button>
 
-  <% @comments.each do |comment| %>
-  <li><%= comment.content %> - <%= comment.user.first_name %> </li>
-  <% end %>
+</div>
 
-  <button><%= link_to "Add New Comment", new_comment_path(:linked_resource => @resource.id) %></button>
-  </ul>
-</p>
-
-
+<br>
 
 <%= link_to 'Edit', edit_resource_path(@resource) %> |
 <%= link_to 'Back', resources_path %> |

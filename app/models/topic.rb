@@ -5,4 +5,6 @@ class Topic < ActiveRecord::Base
 
   validates :name, :docs_url, :description, presence: true
 
+
+
 end
