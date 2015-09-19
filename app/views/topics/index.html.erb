@@ -1,15 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Topics</h1>
+<div id="welcome-message">
+<%= markdown("
+#WELCOME TO PANIC BUTTON
 
+**THIS IS STRESSFUL:** WDI is serious business, and the stuff we're doing is getting **COMPLICATED**. We all knew that going in, but it's still, y'know, pretty brutal.
+
+**SO:** This is Panic Button. We know what we need to do, and collectively we can write the HELL out of this stuff. This site aims to capture that knowledge, store it online and make it retrievable.
+
+**ALSO:** If you're stressing a LOT, click the button. That's why it's there.
+") %>
+</div>
+
+<button id="new-topic-button">
+  <%= link_to 'Submit A New Topic', new_topic_path %>
+</button>
+
+<div id="topics-container">
 <table>
   <thead>
     <tr>
       <th>Name</th>
-      <th>Docs url</th>
+      <th>Docs</th>
       <th>Description</th>
       <% if current_user %>
-        <th colspan="2"></th>
+        <th colspan="2">User Actions</th>
       <% end %>
     </tr>
   </thead>
@@ -18,8 +33,8 @@
     <% @topics.each do |topic| %>
       <tr>
         <td><%= link_to topic.name, topic %></td>
-        <td><%= link_to topic.docs_url, topic.docs_url %></td>
-        <td><%= topic.description %></td>
+        <td><%= link_to "Docs", topic.docs_url %></td>
+        <td><%= topic.  description %></td>
         <% if current_user %>
           <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
           <td><%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -28,7 +43,5 @@
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
-
-<%= link_to 'New Topic', new_topic_path %>

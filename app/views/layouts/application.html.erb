@@ -8,18 +8,26 @@
 </head>
 <body>
 
-<% if !current_user %>
-  <a href="/login">Login</a> |
-<% else %>
-  <a href="/logout">Logout</a> |
-<% end %>
-<%= link_to "Home", root_path %> |
-<%= link_to "Topics", topics_path %> |
-<%= link_to "Users", users_path %> |
-<%= link_to "Resources", resources_path %>
+  <div id="main-nav">
+    <% if !current_user %>
+      <a href="/login">Login</a> |
+    <% else %>
+      <a href="/logout">Logout</a> |
+    <% end %>
+    <%= link_to "Home", root_path %> |
+    <%= link_to "Topics", topics_path %> |
+    <%= link_to "Users", users_path %> |
+    <%= link_to "Resources", resources_path %> |
+    <span id="panic-button">
+      <%=link_to "AGH AGH AGH AGH", '/it-is-gonna-be-fine' %>
+    </span>
+
+  </div>
 
 
-<%= yield %>
+<div id="main-body-container">
+  <%= yield %>
+</div>
 
 </body>
 </html>

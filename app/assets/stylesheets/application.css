@@ -20,10 +20,49 @@
 body {
   font-family: 'Roboto Slab', serif;
   font-weight: 300;
-  /*background-color: #008CBA;*/
-  background-color: white;
+  color: black;
+  background-image: url("pluto.jpg") ;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: black;
   }
 
 body * > {
  font-family: 'Roboto Slab', serif;
+}
+
+#main-body-container {
+  margin: 0 auto;
+  max-width: 80%;
+  min-width: 40%;
+  border: 4px solid gray;
+  padding: 10px;
+  background: white;
+  opacity: .8;
+}
+
+#main-body-container h1, h2, h3 {
+  text-align: center;
+}
+
+#main-nav {
+  max-width: 80%;
+  min-width: 40%;
+  height: 10%;
+  /*float: right;*/
+  margin: 0 auto;
+  padding: 10px;
+  background: white;
+  border: 4px solid gray;
+  text-align: center;
+  opacity: .8;
+}
+
+#main-nav a {
+  margin: 0 auto;
+  margin-bottom: 5%;
+}
+
+#panic-button {
+  font-weight: 700;
 }

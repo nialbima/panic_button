@@ -19,7 +19,6 @@ class CommentsController < ApplicationController
   def new
     @user = current_user
     @comment = Comment.new
-    binding.pry
   end
 
   def show
@@ -32,8 +31,6 @@ class CommentsController < ApplicationController
   def create
     @user = current_user
     @comment = Comment.new(comment_params)
-
-    binding.pry
 
     respond_to do |format|
       if @comment.save

@@ -5,10 +5,8 @@ class ResourcesController < ApplicationController
   # GET /resources.json
   def index
     @resources = Resource.all
-
     cookies[:link_id] = nil
     cookies[:link_path] = "/resources"
-
   end
 
   def show
@@ -30,27 +28,16 @@ class ResourcesController < ApplicationController
     # take me back
     cookies[:link_id] = nil
     cookies[:link_path] = "/resources/new"
-
-    # binding.pry
   end
 
   def create
-    binding.pry
-
     @resource = Resource.new(resource_params)
-
     respond_to do |format|
       if @resource.save
-
         # for each topic checked:
         params[:topic_id].values.each do |i|
-          @jointopic = ResourceTopic.new
-          @jointopic.resource_id = @resource.id
-          @jointopic.topic_id = i.to_i
-          @jointopic.save
-          binding.pry
+          @jointopic = ResourceTopic.create(resource_id: @resource.id, topic_id: i.to_i)
         end
-
         #end
         format.html { redirect_to @resource, notice: 'Resource was successfully created.' }
         format.json { render :show, status: :created, location: @resource }
@@ -63,30 +50,24 @@ class ResourcesController < ApplicationController
 
   def edit
     @topics = Topic.all
-
     cookies[:link_id] = @resource.id
     cookies[:link_path] = "/resources/#{cookies[:link_id]}/edit"
-
   end
 
   def update
     # save the topics now associated with the updated resource
     update_topic_ids = params[:topic_id].values
-
     respond_to do |format|
       if @resource.update(resource_params)
         format.html { redirect_to @resource, notice: 'Resource was successfully updated.' }
         format.json { render :show, status: :ok, location: @resource }
-
         # UPDATE JOIN TABLE (where necessary)
         update_topic_ids.each do |i|
           topic = ResourceTopic.where(topic_id: i, resource_id: @resource.id)
-
           if topic==[]
              ResourceTopic.create(resource_id: @resource.id, topic_id: i.to_i)
           end
         end
-
         # find everything currently associated with this resource, destroy unwanted joins
         ResourceTopic.where(resource_id: @resource.id).select do |i|
           if update_topic_ids.include?(i[:topic_id].to_s)
@@ -95,12 +76,11 @@ class ResourcesController < ApplicationController
           end
         end
 
-        CLIENT.send(mail({
-          to: "nialbima@gmail.com", #User.find(@resource.user_id).email
-          from: "#{current_user.email}", #
-          subject: "#{@resource.name} - Update Submitted",
-          text: "HEY THERE. #{@resource.name} was just updated."
-          }))
+    CLIENT.send(mail({
+      to: "nialbima@gmail.com", #User.find(@resource.user_id).email
+      from: "#{current_user.email}", #
+      subject: "#{@resource.name} - Update Submitted",
+      text: "HEY THERE. #{@resource.name} was just updated."}))
 
       else
         format.html { render :edit }
