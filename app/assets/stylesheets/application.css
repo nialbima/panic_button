@@ -12,4 +12,18 @@
  *
  *= require_tree .
  *= require_self
+ *= foundation/foundation
  */
+
+ @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700);
+
+body {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 300;
+  /*background-color: #008CBA;*/
+  background-color: white;
+  }
+
+body * > {
+ font-family: 'Roboto Slab', serif;
+}

@@ -5,21 +5,25 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    cookies[:link_id] = nil
+    cookies[:link_path] = "/users"
   end
 
 
   def login
+    @cohorts = Cohort.all
+
     if current_user
       redirect_to user_path(current_user)
     else
-      @cohorts = Cohort.all
       render :login
     end
+
   end
 
   def logout
     session[:user_id] = nil
-    redirect_to root_path
+    redirect_to cookies[:link_path]
   end
 
   def login_post
@@ -29,7 +33,7 @@ class UsersController < ApplicationController
         #proceed with the login
         if @user.authenticate(params[:password])
           session[:user_id] = @user.id
-          redirect_to topics_path
+          redirect_to cookies[:link_path]
         else
           render :login
         end
@@ -41,16 +45,25 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+
+    cookies[:link_id] = @user.id
+    cookies[:link_path] = "/users/#{cookies[:link_id]}"
+
   end
 
   # GET /users/new
   def new
     @cohorts = Cohort.all
     @user = User.new
+
+    cookies[:link_id] = nil
+    cookies[:link_path] = "/users/new"
   end
 
   # GET /users/1/edit
   def edit
+    cookies[:link_id] = @user.id
+    cookies[:link_path] = "/users/#{cookies[:link_id]}/edit"
   end
 
   # POST /users

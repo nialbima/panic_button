@@ -5,6 +5,10 @@ class TopicsController < ApplicationController
   # GET /topics.json
   def index
     @topics = Topic.all
+
+    cookies[:link_id] = nil
+    cookies[:link_path] = "/resources"
+
   end
 
   # GET /topics/1
@@ -12,17 +16,30 @@ class TopicsController < ApplicationController
   def show
     @topic = Topic.find(params[:id])
     @resources = @topic.resources
+
+    cookies[:link_id] = @topic.id
+    cookies[:link_path] = "/topics/#{cookies[:link_id]}"
+
   end
 
   # GET /topics/new
   def new
     @topic = Topic.new
+
+    cookies[:link_id] = nil
+    cookies[:link_path] = "/topics/new"
+
   end
 
   # GET /topics/1/edit
   def edit
     binding.pry
     @topics = Topic.all
+
+    cookies[:link_id] = @topic.id
+    cookies[:link_path] = "/topics/#{cookies[:link_id]}/edit"
+
+
   end
 
   # POST /topics

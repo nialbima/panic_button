@@ -46,7 +46,11 @@
       <%= markdown( "* #{comment.content} - #{comment.user.first_name }") %>
     <% end %>
 
-    <button><%= link_to "Add New Comment", new_comment_path(:linked_resource => @resource.id) %></button>
+    <% if current_user %>
+      <button><%= link_to "Add New Comment", new_comment_path %></button>
+    <% else %>
+      <button id="please-login" href="/login">Login</button>
+    <% end %>
 
 </div>
 
