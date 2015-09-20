@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'rails-assets-foundation'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-foundation'
+end
 
 gem 'sendgrid-ruby'
 
