@@ -1,6 +1,11 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
+  def selfcare
+    @compliments = Compliment.all
+    render :itsokay
+  end
+
   def edit
   end
 

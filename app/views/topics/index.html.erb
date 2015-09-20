@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<% if session[:user_id] == nil %>
 <div id="welcome-message">
 <%= markdown("
 #WELCOME TO PANIC BUTTON
@@ -11,8 +12,11 @@
 **ALSO:** If you're stressing a LOT, click the button. That's why it's there.
 ") %>
 </div>
+<% else %>
+<%= markdown("#TOPICS") %>
+<% end %>
 
-<button id="new-topic-button">
+<button id="new-topic-button" class="submit-button">
   <%= link_to 'Submit A New Topic', new_topic_path %>
 </button>
 

@@ -7,8 +7,8 @@ class TopicsController < ApplicationController
     @topics = Topic.all
 
     cookies[:link_id] = nil
-    cookies[:link_path] = "/resources"
-
+    cookies[:link_path] = "/topics"
+    
   end
 
   # GET /topics/1

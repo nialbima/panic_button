@@ -10,4 +10,6 @@ Rails.application.routes.draw do
 
   post '/comments', to: 'comments#show'
 
+  get '/it-is-gonna-be-fine', to: 'comments#selfcare'
+
 end
