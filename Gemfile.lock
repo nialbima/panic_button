@@ -101,7 +101,6 @@ GEM
       sprockets-rails
     rails-assets-fastclick (1.0.6)
     rails-assets-foundation (5.5.2)
-      rails-assets-fastclick (>= 0.6.11)
       rails-assets-jquery (>= 2.1.0)
       rails-assets-jquery-placeholder (~> 2.0.7)
       rails-assets-jquery.cookie (~> 1.4.0)
