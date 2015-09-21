@@ -18,5 +18,9 @@ Downloading the code:
 * clone into an empty repo
 * uhhhh run "rails s"?
 
+
+Background not working, supposed to be this:
+![](app/assets/images/pluto.jpg)
+
 ERD:
-![](https://i.imgur.com/Qw6nPeP.png) 
+![](https://i.imgur.com/Qw6nPeP.png)
