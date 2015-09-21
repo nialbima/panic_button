@@ -1,13 +1,22 @@
+/* line 5, /Users/galactus/code/panic_button/app/assets/stylesheets/topics.scss */
+#new-topic-button {
+  width: 40%;
+  height: 5%;
+  margin: 0 auto;
+  margin-bottom: 2%;
+  position: relative;
+}
 /* COLOR SCHEME:
  * #000080
  * #FFFFFF
  * #000000
  * #C0C0C0
  *
- *= require_tree .
- *= require_self
- *= foundation/foundation
+
+
+ *= foundation
  */
+
 
  @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700);
 
