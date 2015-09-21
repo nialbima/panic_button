@@ -15,7 +15,7 @@ body {
   font-family: 'Roboto Slab', serif;
   font-weight: 300;
   color: black;
-  background-image: url("public/images/pluto.jpg") ;
+  background-image: url("pluto.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
   background-color: #000000;

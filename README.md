@@ -18,4 +18,5 @@ Downloading the code:
 * clone into an empty repo
 * uhhhh run "rails s"?
 
-ERD: http://imgur.com/Qw6nPeP
+ERD:
+![](https://i.imgur.com/Qw6nPeP.png) 
